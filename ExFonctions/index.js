@@ -1,42 +1,29 @@
 //////////    EXO1    ////////////
 
-function add(nb1=32,nb2=343)
+function add(nb1, nb2)
 {
-    let result=nb1+nb2;
-    return result;
+    return nb1 + nb2;
 }
-console.log(add());
 
-
-function sub(nb1,nb2)
+function sub(nb1, nb2)
 {
-    let result=nb1-nb2;
-    return result;
+    return nb1 - nb2;
 }
-console.log(sub());
 
-
-function mult(nb1,nb2)
+function mult(nb1, nb2)
 {
-    let result=nb1*nb2;
-    return result;
+    return nb1 ** nb2;
 }
-console.log(mult());
 
-function div(nb1,nb2)
+function div(nb1, nb2)
 {
-    let result=nb1/nb2;
-    return result;
+    return nb1 / nb2;
 }
-console.log(div());
 
-
-function mod(nb1,nb2)
+function mod(nb1, nb2)
 {
-    let result=nb1%nb2;
-    return result;
+    return nb1 % nb2;
 }
-console.log(mod());
 
 
 //////////    EXO2    ////////////
@@ -44,53 +31,61 @@ console.log(mod());
 
 function askUserOperation()
 {
-    let calcul=window.prompt("Saisir calcul (+,-,/,%");
-    return calcul;
+    let operation=window.prompt("Saisir calcul (+,-,/,%");
+    return operation;
 }
 
 
 function askUserFirstNumber()
 {
     let firstNb=window.prompt("Saisir 1er nombre");
-    return firstNb;
+    return parseInt(firstNb);
 }
 
 
 function askUserSecondNumber()
 {
     let secondNb=window.prompt("Saisir 2ème nombre");
-    return secondNb;
+    return parseInt(secondNb);
 }
 
 
 
 //////////    EXO3    ////////////
 
-function calculator(askUserOperation, askUserFirstNumber, askUserSecondNumber) 
+function calculator() 
 {
-    let firstNb = parseInt(askUserFirstNumber);
-    let secondNb = parseInt(askUserSecondNumber);
-    if (askUserOperation === "+")
+    let firstNb = askUserFirstNumber();
+    let operation = askUserOperation();
+    let secondNb = askUserSecondNumber();
+    
+    if(operation === "+")
     {
-        let add = add(firstNb, secondNb);
-        return add;
+        return add(firstNb, secondNb);
     }
-    if (askUserOperation === "-") 
+    else if(operation === "-")
     {
-        sub(firstNb, secondNb);
+        return sub(firstNb, secondNb);
     }
-    if (askUserOperation === "*") 
+    else if(operation === "*")
     {
-        mult(firstNb, secondNb);
+        return mult(firstNb, secondNb);
     }
-    if (askUserOperation === "/"){
-        div(firstNb, secondNb);
+    else if(operation === "/")
+    {
+        return div(firstNb, secondNb);
     }
-    if (askUserOperation === "%") {
-        mod(firstNb, secondNb);
+    else if(operation === "%"){
+        
+        return mod(firstNb, secondNb);
     }
-    else {
-        return alert("Utilise une autre opération");
+    else
+    {
+        return "Entrez un opérateur valide"
     }
+    
 }
-calculator()
+
+let result=calculator();
+
+alert(result);
